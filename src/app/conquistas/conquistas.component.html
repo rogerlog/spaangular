@@ -1,0 +1,14 @@
+<h2>Conquistas</h2>
+
+<table>
+    <tr>
+        <th>Curso</th>
+        <th>Data Inicio</th>
+        <th>Data Conclusao</th>
+    </tr>
+    <tr *ngFor="let conquista of listaConquistas">
+        <td>{{conquista.curso}}</td>
+        <td>{{conquista.datainicio}}</td>
+        <td>{{conquista.dataconclusao}}</td>
+    </tr>
+</table>

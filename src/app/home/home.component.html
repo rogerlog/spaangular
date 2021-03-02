@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu perfil na DIO</title>
+</head>
+
+<body>
+
+    <mat-toolbar>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="exibirSobre()">Sobre</button>
+            <button mat-menu-item (click)="exibirConquistas()">Conquistas</button>
+            <button mat-menu-item (click)="exibirHabilidades()">Habilidades</button>
+            <button mat-menu-item (click)="exibirProjetos()">Projetos</button>
+        </mat-menu>
+
+
+        <span class="titulo-perfil">Meu perfil na DIO</span>
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+            <a title="Projetos na DIO" target="_blank"
+                href="https://web.digitalinnovation.one/users/logroger?tab=projects">
+                <mat-icon>workspaces</mat-icon>
+            </a>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+            <a title="Visite meu perfil na DIO" target="_blank" href="https://web.digitalinnovation.one/users/logroger">
+                <mat-icon>account_circle</mat-icon>
+            </a>
+        </button>
+    </mat-toolbar>
+
+    <h2>Bem vindo ao meu perfil na plataforma DIO!</h2>
+
+    <div *ngIf="exibeSobre">
+
+        <button class="btnAlterar" (click)="addLevel()">Adicionar Level</button>
+        <button class="btnAlterar" (click)="addXp()">Adicionar XP</button>
+        <button class="btnAlterar" (click)="reiniciar()">Reiniciar</button>
+
+        <spa-sobre [xpInicial]="xp" [levelInicial]="level"></spa-sobre>
+    </div>
+
+    <div *ngIf="exibeConquistas">
+        <spa-conquistas></spa-conquistas>
+    </div>
+
+    <div *ngIf="exibeHabilidades">
+        <spa-habilidades></spa-habilidades>
+    </div>
+
+    <div *ngIf="exibeProjetos">
+        <spa-projetos></spa-projetos>
+    </div>
+
+    <footer>
+        <p>Roger Guimaraes 2021 |
+            <a href="mailto:logroger@gmail.com">logroger@gmail.com</a>
+        </p>
+    </footer>
+
+</body>
+
+</html>
